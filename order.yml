@@ -41,3 +41,10 @@ spring:
     username: guest
     password: guest
     queue: order
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

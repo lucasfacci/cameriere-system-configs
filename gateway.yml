@@ -23,3 +23,9 @@ spring:
             - Path=/ticket/**
           filters:
             - StripPrefix=1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
