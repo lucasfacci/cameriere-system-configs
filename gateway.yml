@@ -1,0 +1,25 @@
+server:
+  port: 7000
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: menu
+          uri: lb://menu
+          predicates:
+            - Path=/menu/**
+          filters:
+            - StripPrefix=1
+        - id: order
+          uri: lb://order
+          predicates:
+            - Path=/order/**
+          filters:
+            - StripPrefix=1
+        - id: ticket
+          uri: lb://ticket
+          predicates:
+            - Path=/ticket/**
+          filters:
+            - StripPrefix=1
