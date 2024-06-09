@@ -38,6 +38,12 @@ spring:
   servlet:
     multipart:
       max-file-size: 10MB
+  # RABBITMQ
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 management:
   endpoints:

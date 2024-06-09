@@ -42,7 +42,6 @@ spring:
     password: guest
     queue: order
 
-
 management:
   endpoints:
     web:
