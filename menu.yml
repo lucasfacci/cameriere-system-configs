@@ -7,14 +7,16 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
-# MYSQL
 spring:
+  # MYSQL
   datasource:
     url: jdbc:mysql://localhost:3306/menudb
     username: root
     password: root
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update
   # UPLOAD FILE SIZE
   servlet:
     multipart:
