@@ -7,33 +7,14 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
-# # MYSQL
-# spring:
-#   datasource:
-#     url: jdbc:mysql://localhost:3306/menu_db?serverTimezone=America/Sao_Paulo
-#     username: root
-#     password: root
-#   jpa:
-#     hibernate:
-#       ddl-auto: create-drop
-
 spring:
-  # H2
+  # MYSQL
   datasource:
-    url: jdbc:h2:mem:testdb
-    driverClassName: org.h2.Driver
-    username: sa
-    password: ''
+    url: jdbc:mysql://localhost:3307/ordersdb
+    username: root
+    password: root
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    properties:
-      hibernate:
-        jdbc:
-          lob:
-            non_contextual_creation: true
-  h2:
-    console:
-      enabled: true
+    show-sql: true
   # RABBITMQ
   rabbitmq:
     host: localhost
