@@ -1,28 +1,21 @@
 server:
   port: 7000
 
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
 spring:
   cloud:
     gateway:
-      routes:
-        - id: menu
-          uri: lb://menu
-          predicates:
-            - Path=/menu/**
-          filters:
-            - StripPrefix=1
-        - id: order
-          uri: lb://order
-          predicates:
-            - Path=/order/**
-          filters:
-            - StripPrefix=1
-        - id: ticket
-          uri: lb://ticket
-          predicates:
-            - Path=/ticket/**
-          filters:
-            - StripPrefix=1
+      discovery:
+        locator:
+          enabled: true
   # RABBITMQ
   rabbitmq:
     host: localhost
@@ -35,12 +28,15 @@ management:
     web:
       exposure:
         include: "*"
-  health:
-    readiness-state:
-      enabled: true
-    liveness-state:
-      enabled: true
   endpoint:
-    health:
-      probes:
-        enabled: true
+    gateway:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "gateway"
+    description: "API Gateway"
+    version: "1.0.0"
