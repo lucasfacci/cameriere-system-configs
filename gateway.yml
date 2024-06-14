@@ -41,3 +41,9 @@ info:
     name: "gateway"
     description: "API Gateway"
     version: "1.0.0"
+
+logging:
+  level:
+    com:
+      cameriere:
+        gateway: DEBUG

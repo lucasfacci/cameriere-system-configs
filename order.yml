@@ -59,3 +59,9 @@ info:
     name: "order"
     description: "Order Microservice"
     version: "1.0.0"
+
+logging:
+  level:
+    com:
+      cameriere:
+        order: DEBUG
