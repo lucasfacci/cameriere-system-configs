@@ -12,12 +12,6 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
-info:
-  app:
-    name: "order"
-    description: "Order Microservice"
-    version: "1.0.0"
-
 spring:
   # MYSQL
   datasource:
@@ -59,3 +53,9 @@ management:
 endpoints:
   shutdown:
     enabled: true
+
+info:
+  app:
+    name: "order"
+    description: "Order Microservice"
+    version: "1.0.0"
