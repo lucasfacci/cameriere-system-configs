@@ -13,7 +13,6 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 
 spring:
-  # MYSQL
   datasource:
     url: jdbc:mysql://localhost:3307/ordersdb
     username: root
@@ -22,17 +21,20 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-  # RABBITMQ
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+    stream:
+      bindings:
+        sendCommunication-out-0:
+          destination: send-communication
   rabbitmq:
     host: localhost
     port: 5672
     username: guest
     password: guest
-    queue: order
-  cloud:
-    openfeign:
-      circuitbreaker:
-        enabled: true
+    connect-timeout: 10s
 
 management:
   endpoints:
