@@ -26,6 +26,14 @@ spring:
   servlet:
     multipart:
       max-file-size: 10MB
+  cloud:
+    function:
+      definition: decreaseProductsQuantity
+    stream:
+      bindings:
+        decreaseProductsQuantity-in-0:
+          destination: communication-sent
+          group: ${spring.application.name}
   # RABBITMQ
   rabbitmq:
     host: localhost
